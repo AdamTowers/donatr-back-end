@@ -9,9 +9,12 @@ module Api
       end
 
       def show
-        @donors = @donors.find(params[:id])
-
-        render json: @donors, status: 200
+        @donor = Donor.find(params[:id])
+        if (authorized?(@donor))
+          render json: @donor
+        else
+          render json: { unauthorized: true }, status: :unauthorized
+        end
       end
 
       def create
@@ -19,9 +22,8 @@ module Api
 
         if @donor.valid?
           @donor.save
-          # for auth
-          # render json: token_json(@donor)
-          render json: @donor
+
+          render json: token_json(@donor)
         else
           render json:  @donor.errors.full_messages
         end
