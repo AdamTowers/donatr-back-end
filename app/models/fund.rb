@@ -1,7 +1,6 @@
 class Fund < ApplicationRecord
   validates :organization_id, presence: true
-  validates :title, length: { in: 3..48 }
-  validates_format_of :title, with: /\A[a-zA-Z0-9]+\Z/
+  validates :title, length: { in: 2..256 }
   validates :description, presence: true
   validates :goal, numericality: {only_integer: true, greater_than_or_equal_to: 1}
 
