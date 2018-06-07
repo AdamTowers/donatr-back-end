@@ -1,4 +1,6 @@
 class Donor < ApplicationRecord
+  has_secure_password
+  
   validates :username, uniqueness: { case_sensitive: false }, length: { in: 2..48 }
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -9,8 +11,6 @@ class Donor < ApplicationRecord
   has_many :donations
   has_many :funds, through: :donations
   has_many :organizations, through: :funds
-
-  has_secure_password
 
   def full_name
     "#{self.first_name} #{self.last_name}"

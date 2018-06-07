@@ -1,4 +1,6 @@
 class Organization < ApplicationRecord
+  has_secure_password
+
   validates :username, uniqueness: { case_sensitive: false }, length: { in: 2..48 }
   validates :name, presence: true
   validates :email, uniqueness: { case_sensitive: false }
@@ -9,6 +11,4 @@ class Organization < ApplicationRecord
   has_many :funds
   has_many :donations, through: :funds
   has_many :donors, through: :funds
-
-  has_secure_password
 end
