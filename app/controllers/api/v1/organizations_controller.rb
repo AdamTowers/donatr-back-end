@@ -1,37 +1,31 @@
 module Api
   module V1
 
-    class DonorsController < ApplicationController
-      def index
-        @donors = Donor.all
-
-        render json: @donors
-      end
-
+    class OrganizationsController < ApplicationController
       def show
-        @donor = Donor.find(params[:id])
-        if (authorized?(@donor))
-          render json: @donor
+        @organization = Organization.find(params[:id])
+        if (authorized?(@organization))
+          render json: @organization
         else
           render json: { unauthorized: true }, status: :unauthorized
         end
       end
 
       def create
-        @donor = Donor.new(donor_params)
+        @organization = Organization.new(organization_params)
 
-        if @donor.valid?
-          @donor.save
+        if @organization.valid?
+          @organization.save
 
-          render json: token_json(@donor)
+          render json: token_json(@organization)
         else
-          render json:  @donor.errors.full_messages
+          render json: @organization.errors.full_messages
         end
       end
 
       private
       def organization_params
-        params.require(:donor).permit(:username, :name, :bio, :email, :password, :password_digest)
+        params.require(:organization).permit(:username, :name, :bio, :email, :password, :password_digest)
       end
     end
 
