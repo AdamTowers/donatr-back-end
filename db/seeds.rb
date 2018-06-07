@@ -2,18 +2,21 @@
 redCross = Organization.create(
   username: "arc",
   name: "American Red Cross",
+  bio: Faker::Lorem.paragraph,
   email: Faker::Internet.email,
   password: "password1"
 )
 oxfam = Organization.create(
   username: "oxfam",
   name: "Oxfam",
+  bio: Faker::Lorem.paragraph,
   email: Faker::Internet.email,
   password: "password1"
 )
 unicef = Organization.create(
   username: "us-unicef",
   name: "US Fund for UNICEF",
+  bio: Faker::Lorem.paragraph,
   email: Faker::Internet.email,
   password: "password1"
 )
