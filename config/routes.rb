@@ -5,7 +5,8 @@ Rails.application.routes.draw do
      resources :donors
      resources :donations
 
-     post '/sessions/', to: 'sessions#create', as: 'sessions'
+     post '/donor_sessions/', to: 'sessions#create_donor_sessions', as: 'donor_sessions'
+     post '/organization_sessions/', to: 'sessions#create_organization_sessions', as: 'organization_sessions'
    end
  end
 

@@ -3,7 +3,7 @@ module Api
 
     class SessionsController < ApplicationController
 
-      def create_donor
+      def create_donor_sessions
         @user = Donor.find_by(username: params["username"])
         if (@user && @user.authenticate(params["password"]))
           render json: token_json(@user)
@@ -14,7 +14,7 @@ module Api
         end
       end
 
-      def create_organization
+      def create_organization_sessions
         @user = Organization.find_by(username: params["username"])
         if (@user && @user.authenticate(params["password"]))
           render json: token_json(@user)
