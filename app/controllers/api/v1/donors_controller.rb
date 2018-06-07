@@ -31,7 +31,7 @@ module Api
 
       private
       def donor_params
-        params.require(:donor).permit(:username, :first_name, :last_name, :password, :password_digest)
+        params.require(:donor).permit(:username, :first_name, :email, :last_name, :password, :password_digest)
       end
     end
 
