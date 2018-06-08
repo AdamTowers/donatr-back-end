@@ -25,7 +25,7 @@ module Api
 
       private
       def organization_params
-        params.permit(:username, :name, :bio, :email, :password, :password_digest)
+        params.permit(:id, :username, :name, :bio, :email, :password, :password_digest)
       end
     end
 
