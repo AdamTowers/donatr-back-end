@@ -14,17 +14,6 @@ module Api
         end
       end
 
-      def current_donor_donations
-        @donor = Donor.find(current_user_id)
-
-        if (authorized?(@donor))
-          @donations = @donor.donations
-          render json: @donations
-        else
-          render json: { unauthorized: true }, status: :unauthorized
-        end
-      end
-
       private
       def donation_params
         params.require(:donation).permit(:donor_id, :fund_id, :amount)
