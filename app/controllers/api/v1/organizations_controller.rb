@@ -2,6 +2,12 @@ module Api
   module V1
 
     class OrganizationsController < ApplicationController
+      def index
+        @organizations = Organization.all
+
+        render json: @organizations
+      end
+
       def show
         @organization = Organization.find(params[:id])
         if (authorized?(@organization))
