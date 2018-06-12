@@ -1,6 +1,7 @@
 class FundSerializer < ActiveModel::Serializer
-  attributes :id, :title, :goal, :raised, :organization, :donations
+  attributes :id, :organization_id, :title, :goal, :raised, :donation_count
 
-  belongs_to :organization
-  has_many :donations
+  def donation_count
+    object.donations.count
+  end
 end

@@ -4,7 +4,8 @@ module Api
     class FundsController < ApplicationController
       def index
         @funds = Fund.all
-          render json: @funds
+
+        render json: @funds
       end
 
       # private
