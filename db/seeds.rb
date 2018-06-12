@@ -39,7 +39,6 @@ end
     title: Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph,
     goal: 20000,
-    raised: Faker::Number.number(3),
     picture: 'https://www.grammy.com/sites/com/files/styles/news_detail_header/public/gettyimages-840756000.jpg?itok=ryiDCquu'
   )
 end
@@ -49,7 +48,6 @@ end
     title: Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph,
     goal: 20000,
-    raised: Faker::Number.number(3),
     picture: 'https://www.grammy.com/sites/com/files/styles/news_detail_header/public/gettyimages-840756000.jpg?itok=ryiDCquu'
   )
 end
@@ -60,7 +58,6 @@ end
     title: Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph,
     goal: 20000,
-    raised: Faker::Number.number(3),
     picture: 'https://www.grammy.com/sites/com/files/styles/news_detail_header/public/gettyimages-840756000.jpg?itok=ryiDCquu'
   )
 end
