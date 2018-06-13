@@ -2,12 +2,7 @@ module Api
   module V1
 
     class DonorsController < ApplicationController
-      def index
-        @donors = Donor.all
-
-        render json: @donors
-      end
-
+      
       def show
         @donor = Donor.find(params[:id])
         if (authorized?(@donor))
