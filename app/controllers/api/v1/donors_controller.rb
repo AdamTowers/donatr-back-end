@@ -20,7 +20,7 @@ module Api
 
           render json: token_json(@donor)
         else
-          render json:  @donor.errors.full_messages
+          render json: { :errors => @donor.errors.full_messages }, :status => 422
         end
       end
 
@@ -33,7 +33,7 @@ module Api
 
           render json: token_json(@donor)
         else
-          render json:  @donor.errors.full_messages
+          render json: { :errors => @donor.errors.messages }, :status => 422
         end
       end
 
