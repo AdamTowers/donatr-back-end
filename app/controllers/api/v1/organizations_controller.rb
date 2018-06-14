@@ -10,11 +10,8 @@ module Api
 
       def show
         @organization = Organization.find(params[:id])
-        if (authorized?(@organization))
-          render json: @organization
-        else
-          render json: { unauthorized: true }, status: :unauthorized
-        end
+
+        render json: @organization
       end
 
       def create

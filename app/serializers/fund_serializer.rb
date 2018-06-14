@@ -1,9 +1,20 @@
 class FundSerializer < ActiveModel::Serializer
-  attributes :id, :title, :goal, :raised, :organization, :donor_count
+  attributes :id, :organization_id, :title, :description, :goal, :raised, :donation_count, :organization_name,
 
-  belongs_to :organization
+  def organization_name
+    object.organization.name
+  end
 
-  def donor_count
-    object.donors.count
+  def donation_count
+    object.donations.count
+  end
+
+  def raised
+    total = 0
+    object.donations.each do |d|
+      total += d.amount
+    end
+
+    return total
   end
 end

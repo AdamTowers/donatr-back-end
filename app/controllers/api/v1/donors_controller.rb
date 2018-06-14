@@ -2,15 +2,10 @@ module Api
   module V1
 
     class DonorsController < ApplicationController
-      def index
-        @donors = Donor.all
-
-        render json: @donors
-      end
 
       def show
         @donor = Donor.find(params[:id])
-        if (authorized?(@donor))
+        if authorized?(@donor)
           render json: @donor
         else
           render json: { unauthorized: true }, status: :unauthorized
@@ -25,13 +20,26 @@ module Api
 
           render json: token_json(@donor)
         else
-          render json:  @donor.errors.full_messages
+          render json: { :errors => @donor.errors.full_messages }, :status => 422
+        end
+      end
+
+      def update
+        @donor = Donor.find(donor_params[:id])
+        @donor.update(donor_params)
+
+        if authorized?(@donor) && @donor.valid?
+          @donor.save
+
+          render json: token_json(@donor)
+        else
+          render json: { :errors => @donor.errors.full_messages }, :status => 422
         end
       end
 
       private
       def donor_params
-        params.permit(:id, :username, :first_name, :last_name, :email, :password)
+        params.permit(:donor, :id, :username, :first_name, :last_name, :email, :password)
       end
     end
 
