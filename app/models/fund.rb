@@ -7,4 +7,13 @@ class Fund < ApplicationRecord
   belongs_to :organization
   has_many :donations
   has_many :donors, through: :donations
+
+  def raised
+    total = 0
+    self.donations.each do |d|
+      total += d.amount
+    end
+
+    return total
+  end
 end
