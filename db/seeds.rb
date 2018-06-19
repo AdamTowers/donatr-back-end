@@ -38,7 +38,7 @@ end
     organization_id: 1,
     title: Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph,
-    goal: 20000,
+    goal: 20000.00,
     picture: 'https://www.grammy.com/sites/com/files/styles/news_detail_header/public/gettyimages-840756000.jpg?itok=ryiDCquu'
   )
 end
@@ -47,7 +47,7 @@ end
     organization_id: 2,
     title: Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph,
-    goal: 20000,
+    goal: 20000.00,
     picture: 'https://www.grammy.com/sites/com/files/styles/news_detail_header/public/gettyimages-840756000.jpg?itok=ryiDCquu'
   )
 end
@@ -57,7 +57,7 @@ end
     organization_id: 3,
     title: Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph,
-    goal: 20000,
+    goal: 20000.00,
     picture: 'https://www.grammy.com/sites/com/files/styles/news_detail_header/public/gettyimages-840756000.jpg?itok=ryiDCquu'
   )
 end
@@ -69,6 +69,6 @@ arr = [1,2,3,4,5,6,7,8,9,10]
   Donation.create(
     donor_id: arr.sample,
     fund_id: arr.sample,
-    amount: Faker::Number.number(2)
+    amount: Faker::Number.decimal(2)
   )
 end

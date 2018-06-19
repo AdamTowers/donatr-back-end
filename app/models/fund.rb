@@ -2,7 +2,7 @@ class Fund < ApplicationRecord
   validates :organization_id, presence: true
   validates :title, length: { in: 2..256 }
   validates :description, presence: true
-  validates :goal, numericality: {only_integer: true, greater_than_or_equal_to: 1}
+  validates :goal, numericality: { greater_than: 0, less_than: 1000000 }
 
   belongs_to :organization
   has_many :donations
