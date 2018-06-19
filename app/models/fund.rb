@@ -9,7 +9,7 @@ class Fund < ApplicationRecord
   has_many :donors, through: :donations
 
   def raised
-    total = 0
+    total = 0.00
     self.donations.each do |d|
       total += d.amount
     end

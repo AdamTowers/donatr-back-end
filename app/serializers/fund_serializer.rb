@@ -10,7 +10,7 @@ class FundSerializer < ActiveModel::Serializer
   end
 
   def raised
-    total = 0
+    total = 0.00
     object.donations.each do |d|
       total += d.amount
     end
