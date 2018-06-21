@@ -16,7 +16,7 @@ oxfam = Organization.create(
 unicef = Organization.create(
   username: "us-unicef",
   name: "US Fund for UNICEF",
-  bio: Faker::Lorem.paragraph,
+  bio: Faker::Lorem.paragraph,  
   email: Faker::Internet.email,
   password: "password1"
 )
