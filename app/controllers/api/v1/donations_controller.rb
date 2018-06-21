@@ -10,7 +10,7 @@ module Api
 
           render json: @donation
         else
-          render json:  @donation.errors.full_messages
+          render json:  { :errors => @donation.errors.full_messages }, :status => 422
         end
       end
 

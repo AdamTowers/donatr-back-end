@@ -1,5 +1,5 @@
 class Donation < ApplicationRecord
-  validates :amount, numericality: {only_integer: true, greater_than_or_equal_to: 1}
+  validates :amount, presence: true, numericality: { greater_than: 0, less_than: 1000000 }
 
   belongs_to :fund
   belongs_to :donor

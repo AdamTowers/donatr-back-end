@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180612220208) do
+ActiveRecord::Schema.define(version: 20180619153647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20180612220208) do
   create_table "donations", force: :cascade do |t|
     t.bigint "donor_id"
     t.bigint "fund_id"
-    t.integer "amount"
+    t.decimal "amount", precision: 9, scale: 2
     t.index ["donor_id"], name: "index_donations_on_donor_id"
     t.index ["fund_id"], name: "index_donations_on_fund_id"
   end
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20180612220208) do
     t.bigint "organization_id"
     t.string "title"
     t.string "description"
-    t.integer "goal"
+    t.decimal "goal", precision: 9, scale: 2
     t.string "picture"
     t.index ["organization_id"], name: "index_funds_on_organization_id"
   end

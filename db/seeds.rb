@@ -16,7 +16,7 @@ oxfam = Organization.create(
 unicef = Organization.create(
   username: "us-unicef",
   name: "US Fund for UNICEF",
-  bio: Faker::Lorem.paragraph,
+  bio: Faker::Lorem.paragraph,  
   email: Faker::Internet.email,
   password: "password1"
 )
@@ -33,42 +33,71 @@ unicef = Organization.create(
 end
 
 # Funds (organization, title, description, goal)
-3.times do
+orgIds = [1,2,3]
+goals = [20000.00, 50000.00, 75000.00, 100000.00, 150000.00]
+
+earthquakes = [
+  'https://cdn.pixabay.com/photo/2016/09/07/10/25/crash-1651305_1280.jpg',
+  'https://cdn.pixabay.com/photo/2016/09/12/21/58/earthquake-1665894_960_720.jpg',
+  'https://cdn.pixabay.com/photo/2016/09/01/02/07/construction-1635090_1280.jpg',
+  'https://cdn.pixabay.com/photo/2017/01/10/12/29/earthquake-1968985_1280.jpg'
+]
+ei = 0
+4.times do
   Fund.create(
-    organization_id: 1,
-    title: Faker::Lorem.sentence,
+    organization_id: orgIds.sample,
+    title: 'Earthquake ' + Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph,
-    goal: 20000,
-    picture: 'https://www.grammy.com/sites/com/files/styles/news_detail_header/public/gettyimages-840756000.jpg?itok=ryiDCquu'
+    goal: goals.sample,
+    picture: earthquakes[ei]
   )
-end
-5.times do
-  Fund.create(
-    organization_id: 2,
-    title: Faker::Lorem.sentence,
-    description: Faker::Lorem.paragraph,
-    goal: 20000,
-    picture: 'https://www.grammy.com/sites/com/files/styles/news_detail_header/public/gettyimages-840756000.jpg?itok=ryiDCquu'
-  )
+  ei += 1
 end
 
-2.times do
+hurricanes = [
+  'https://cdn.pixabay.com/photo/2013/02/18/03/47/pierson-82690_960_720.jpg',
+  'https://cdn.pixabay.com/photo/2018/04/06/00/08/calamity-3294654_960_720.jpg',
+  'https://cdn.pixabay.com/photo/2015/01/31/17/45/hurricane-flooding-618714_960_720.jpg',
+  'https://cdn.pixabay.com/photo/2013/09/08/19/15/hurricane-katrina-180538_960_720.jpg',
+  'https://cdn.pixabay.com/photo/2015/10/15/08/10/flood-989084_960_720.jpg'
+]
+hi = 0
+5.times do
   Fund.create(
-    organization_id: 3,
-    title: Faker::Lorem.sentence,
+    organization_id: orgIds.sample,
+    title: 'Hurricane ' + Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph,
-    goal: 20000,
-    picture: 'https://www.grammy.com/sites/com/files/styles/news_detail_header/public/gettyimages-840756000.jpg?itok=ryiDCquu'
+    goal: goals.sample,
+    picture: hurricanes[hi]
   )
+  hi += 1
 end
+
+fires = [
+  'https://cdn.pixabay.com/photo/2015/10/23/03/00/fire-fighters-1002282_960_720.jpg',
+  'https://cdn.pixabay.com/photo/2016/11/15/13/08/wildfire-1826204_960_720.jpg',
+  'https://cdn.pixabay.com/photo/2016/04/22/07/21/fire-1345264_1280.jpg'
+]
+fi = 0
+3.times do
+  Fund.create(
+    organization_id: orgIds.sample,
+    title: 'Forest fire ' + Faker::Lorem.sentence,
+    description: Faker::Lorem.paragraph,
+    goal: goals.sample,
+    picture: fires[fi]
+  )
+  fi += 1
+end
+
 
 # Donations (donor, fund, amount)
 arr = [1,2,3,4,5,6,7,8,9,10]
 
-100.times do
+1000.times do
   Donation.create(
     donor_id: arr.sample,
     fund_id: arr.sample,
-    amount: Faker::Number.number(2)
+    amount: Faker::Number.decimal(2)
   )
 end
