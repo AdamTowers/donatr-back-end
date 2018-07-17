@@ -22,7 +22,7 @@ module Api
 
           render json: token_json(@organization)
         else
-          render json: @organization.errors.full_messages
+          render json: { :errors => @organization.errors.full_messages }, :status => 422
         end
       end
 
