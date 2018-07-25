@@ -4,7 +4,7 @@ Rails.application.routes.draw do
    namespace :v1 do
      resources :donors, only: [:show, :create, :update]
      resources :donations, only: [:create]
-     resources :organizations, only: [:index, :show, :create]
+     resources :organizations, only: [:index, :show, :create, :update]
      resources :funds, only: [:index, :show]
 
      post '/donor_sessions/', to: 'sessions#create_donor_sessions', as: 'donor_sessions'

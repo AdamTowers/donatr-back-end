@@ -22,7 +22,20 @@ module Api
 
           render json: token_json(@organization)
         else
-          render json: @organization.errors.full_messages
+          render json: { :errors => @organization.errors.full_messages }, :status => 422
+        end
+      end
+
+      def update
+        @organization = Organization.find(organization_params[:id])
+        @organization.update(organization_params)
+
+        if authorized?(@organization) && @organization.valid?
+          @organization.save
+
+          render json: token_json(@organization)
+        else
+          render json: { :errors => @organization.errors.full_messages }, :status => 422
         end
       end
 
