@@ -14,9 +14,22 @@ module Api
         render json: @fund
       end
 
+      def create
+        @fund = Fund.new(fund_params)
+        @organization = Organization.find_by(id: params["organization_id"])
+
+        if @fund.valid? && authorized?(@organization)
+          @fund.save
+
+          render json: @fund
+        else
+          render json:  { :errors => @fund.errors.full_messages }, :status => 422
+        end
+      end
+
       private
       def fund_params
-        params.permit(:id, :title, :goal, :raised, :donation_count, :organization_name)
+        params.permit(:id, :organization_id, :title, :description, :goal, :raised, :picture, :donation_count, :organization_name)
       end
     end
 
