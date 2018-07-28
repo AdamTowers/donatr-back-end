@@ -5,7 +5,7 @@ Rails.application.routes.draw do
      resources :donors, only: [:show, :create, :edit, :update]
      resources :donations, only: [:create]
      resources :organizations, only: [:index, :show, :create, :edit, :update]
-     resources :funds, only: [:index, :show, :create]
+     resources :funds, only: [:index, :show, :create, :update]
 
      post '/donor_sessions/', to: 'sessions#create_donor_sessions', as: 'donor_sessions'
      post '/organization_sessions/', to: 'sessions#create_organization_sessions', as: 'organization_sessions'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180619153647) do
+ActiveRecord::Schema.define(version: 20180728205214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20180619153647) do
     t.string "description"
     t.decimal "goal", precision: 9, scale: 2
     t.string "picture"
+    t.boolean "active", default: true
     t.index ["organization_id"], name: "index_funds_on_organization_id"
   end
 
