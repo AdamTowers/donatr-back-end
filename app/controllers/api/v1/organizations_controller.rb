@@ -26,6 +26,17 @@ module Api
         end
       end
 
+      def edit
+        @organization = Organization.find(organization_params[:id])
+
+        if authorized?(@organization)
+
+          render json: @organization
+        else
+          render json: { unauthorized: true }, status: :unauthorized
+        end
+      end
+
       def update
         @organization = Organization.find(organization_params[:id])
         @organization.update(organization_params)

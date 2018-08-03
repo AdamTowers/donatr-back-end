@@ -24,6 +24,16 @@ module Api
         end
       end
 
+      def edit
+        @donor = Donor.find(donor_params[:id])
+
+        if authorized?(@donor)
+          render json: @donor
+        else
+          render json: { unauthorized: true }, status: :unauthorized
+        end
+      end
+
       def update
         @donor = Donor.find(donor_params[:id])
         @donor.update(donor_params)
