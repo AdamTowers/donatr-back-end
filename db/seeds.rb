@@ -16,7 +16,7 @@ oxfam = Organization.create(
 unicef = Organization.create(
   username: "us-unicef",
   name: "US Fund for UNICEF",
-  bio: Faker::Lorem.paragraph,  
+  bio: Faker::Lorem.paragraph,
   email: Faker::Internet.email,
   password: "password1"
 )
@@ -37,10 +37,10 @@ orgIds = [1,2,3]
 goals = [20000.00, 50000.00, 75000.00, 100000.00, 150000.00]
 
 earthquakes = [
-  'https://cdn.pixabay.com/photo/2016/09/07/10/25/crash-1651305_1280.jpg',
-  'https://cdn.pixabay.com/photo/2016/09/12/21/58/earthquake-1665894_960_720.jpg',
-  'https://cdn.pixabay.com/photo/2016/09/01/02/07/construction-1635090_1280.jpg',
-  'https://cdn.pixabay.com/photo/2017/01/10/12/29/earthquake-1968985_1280.jpg'
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/2015_Nepal_depremi_%284%29.jpg/1599px-2015_Nepal_depremi_%284%29.jpg',
+  'https://upload.wikimedia.org/wikipedia/commons/1/16/2010_Haiti_earthquake_relief_efforts_by_the_US_Army.jpg',
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Direct_Relief_Nepal_Earthquake_Relief_Airlift.JPG/1599px-Direct_Relief_Nepal_Earthquake_Relief_Airlift.JPG',
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/2016_Amatrice_earthquake.jpg/800px-2016_Amatrice_earthquake.jpg'
 ]
 ei = 0
 4.times do
@@ -55,11 +55,11 @@ ei = 0
 end
 
 hurricanes = [
-  'https://cdn.pixabay.com/photo/2013/02/18/03/47/pierson-82690_960_720.jpg',
-  'https://cdn.pixabay.com/photo/2018/04/06/00/08/calamity-3294654_960_720.jpg',
-  'https://cdn.pixabay.com/photo/2015/01/31/17/45/hurricane-flooding-618714_960_720.jpg',
-  'https://cdn.pixabay.com/photo/2013/09/08/19/15/hurricane-katrina-180538_960_720.jpg',
-  'https://cdn.pixabay.com/photo/2015/10/15/08/10/flood-989084_960_720.jpg'
+  'https://media.defense.gov/2017/Aug/29/2001800239/-1/-1/0/170829-A-YG824-0001.JPG',
+  'https://media.defense.gov/2017/Sep/05/2001803250/825/780/0/170905-A-YG824-001.JPG',
+  'https://upload.wikimedia.org/wikipedia/commons/5/55/Katrina-14501.jpg',
+  'https://media.defense.gov/2016/Nov/03/2001663380/-1/-1/0/161008-Z-ZO737-149.JPG',
+  'https://upload.wikimedia.org/wikipedia/commons/e/ea/US_Navy_070907-N-1810F-074_Amphibious_assault_ship_USS_Wasp_crew_members_participating_in_Hurricane_Felix_disaster_relief_operations_prepare_water_for_delivery_to_local_residents.jpg'
 ]
 hi = 0
 5.times do
@@ -74,9 +74,9 @@ hi = 0
 end
 
 fires = [
-  'https://cdn.pixabay.com/photo/2015/10/23/03/00/fire-fighters-1002282_960_720.jpg',
-  'https://cdn.pixabay.com/photo/2016/11/15/13/08/wildfire-1826204_960_720.jpg',
-  'https://cdn.pixabay.com/photo/2016/04/22/07/21/fire-1345264_1280.jpg'
+  'https://c1.staticflickr.com/5/4103/4971832860_8c25345e37_b.jpg',
+  'https://upload.wikimedia.org/wikipedia/commons/c/ca/FEMA_-_33364_-_A_helicopter_drops_water_on_the_wildfire_in_California.jpg',
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Air_attack_on_southern_Oregon_wildfire_--_2015_%2820297448766%29.jpg/1599px-Air_attack_on_southern_Oregon_wildfire_--_2015_%2820297448766%29.jpg',
 ]
 fi = 0
 3.times do
